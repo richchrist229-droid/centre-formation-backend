@@ -1,3 +1,63 @@
+# Centre de formation : API Laravel
+
+Application web de gestion des étudiants, des formations et des inscriptions.
+Ce dépôt contient le backend (API REST). Le frontend React est dans le dépôt
+`centre-formation-frontend`.
+
+## Fonctionnalités
+- CRUD des étudiants, formations et inscriptions
+- Validation des données côté serveur
+- Recherche multicritère et pagination
+- Statistiques pour le tableau de bord
+
+## Technologies
+Laravel 12, MySQL, PHP 8.2+
+
+## Installation
+Prérequis : PHP 8.2+, Composer, MySQL, Git
+
+    git clone https://github.com/richchrist229-droid/centre-formation-backend.git
+    cd centre-formation-backend
+    composer install
+    cp .env.example .env
+    php artisan key:generate
+
+Crée une base MySQL nommée `centre_de_formation`, puis dans `.env` :
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=centre_de_formation
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+Puis :
+
+    php artisan migrate --seed
+    php artisan serve
+
+L'API répond sur http://127.0.0.1:8000/api
+
+## Routes principales
+| Méthode | URL | Description |
+|---|---|---|
+| GET, POST | /api/students | Lister, ajouter |
+| PUT, DELETE | /api/students/{id} | Modifier, supprimer |
+| GET, POST | /api/formations | Lister, ajouter |
+| GET, POST | /api/inscriptions | Lister, inscrire |
+| GET | /api/stats | Statistiques |
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
